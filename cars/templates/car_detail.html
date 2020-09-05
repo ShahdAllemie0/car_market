@@ -1,15 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Car Detail</title>
-</head>
-<body>
-		<h1>
-			{{car.make}} - {{car.model}}
-			<small>
-				{{car.year}}
-			</small>
-		</h1>
-		<hr>
-</body>
-</html>
+{% extends "base.html" %}
+
+
+{% block title %}Car Detail{% endblock title %}
+
+{% block content %}
+<br>
+<div class="card">
+  <h5 class="card-header">Car Info</h5>
+	{% if car.img %}
+			<img src="{{car.img.url}}"  class="card-img-top"  alt="">
+		{% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{car.make}}</h5>
+    <p class="card-text">Model: {{car.model}}</p>
+    <p class="card-text">Year: {{car.year}}</p>
+
+    <div class="row text-center">
+        <div class="col-md-6">
+            <a href="{% url  'car-update' car.id %}" class="btn btn-outline-success btn-block">Edit</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url  'car-delete' car.id %}" class="btn btn-outline-danger btn-block">Delete</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}

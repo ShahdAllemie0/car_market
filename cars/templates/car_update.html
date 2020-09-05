@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update{% endblock title %}
+
+{% block content %}
+
+<br>
+<div class="card">
+  <h5 class="card-header"  style="background-color:black; color:grey;"> Edit Car:{{car_obj.make}}</h5>
+  <div class="card-body">
+
+
+
+
+
+        <form action="{% url 'car-update' car_obj.id %} " method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br />
+<input type="submit" value="Update" class="btn btn-outline-success">
+        </form>
+
+
+  </div>
+</div>
+{% endblock content %}
