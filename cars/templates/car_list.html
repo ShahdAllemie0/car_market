@@ -20,9 +20,9 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">{{car.model}}</h5>
-    <p class="card-text">{% if restaurant.logo %}
-				<img class="card-img-top" src="{{car_img.url}}" alt="Hey Noob, look at me...">
-			{% endif %}</p>
+    <p class="card-text">{% if car.img %}
+  			<img src="{{car.img.url}}"  class="card-img-top"  alt="" >
+  		{% endif %}</p>
   <a href="{% url 'car-detail' car.id %}" class="btn btn-outline-success">View</a>
 	<a href="{% url 'car-update' car.id %}" class="btn btn-outline-success">Edit</a>
 

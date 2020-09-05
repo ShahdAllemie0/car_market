@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Car
 from .forms import CarForm
+from django.contrib import messages
 # Style your List and Detail views to use Bootstrap components.
 # Now that your List and Detail views look all pretty, we can probably make them look even better if each object had an image. So, add a new field to the Car model called img and make sure the field stores images and is optional.
 # Once you have the img field, make sure that the image gets displayed in the List and Detail views.
