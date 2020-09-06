@@ -34,9 +34,11 @@ def car_create(request):
          form = CarForm(request.POST, request.FILES)
          if form.is_valid():
               form.save()
+              messages.success(request, 'created successful')
               return redirect('car-list')
     context = {
-        "form":form,}
+        "form":form,
+        }
     return render(request, 'car_create.html', context)
 
 
@@ -47,6 +49,7 @@ def car_update(request, car_id):
           form = CarForm(request.POST, request.FILES, instance=car_obj)
           if form.is_valid():
                 form.save()
+                messages.error(request, 'deleted successful.')
                 return redirect('car-list')
     context = {
     "car_obj": car_obj,
@@ -60,4 +63,5 @@ def car_update(request, car_id):
 def car_delete(request, car_id):
     car_obj = Car.objects.get(id=car_id)
     car_obj.delete()
+    messages.error(request, 'deleted successful.')
     return redirect('car-list')

@@ -14,14 +14,25 @@
 
 
 
-        <form action="{% url 'car-create' %}" method="POST" enctype="multipart/form-data">
-          <div >
-            {{form|crispy}}
-            <br />
-            </div>  {% csrf_token %}
+    <form action="{% url 'car-create' %}" method="POST" enctype="multipart/form-data">
+      <div>
+        {{form|crispy}}
+        <br />
+      </div> {% csrf_token %}
 
-            <input type="submit" value="Create" class="btn btn-outline-success">
-        </form>
+      <input type="submit" value="Create" class="btn btn-outline-success">
+
+    </form>
+
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+
 
   </div>
 </div>
